@@ -1,0 +1,24 @@
+La entrega del primer avance deberá:
+• Ser entregado de forma grupal, indicando apellido y nombre de los integrantes del mismo.
+• Cargar en la sección correspondiente del Campus Virtual el enlace al repositorio de GitHub o
+GitLab del proyecto. El repositorio deberá estar accesible para los profesores del curso. O bien,
+subir un archivo comprimido en formato ZIP, RAR o TAR.GZ que contenga el proyecto
+completo, excluyendo la carpeta node_modules.
+• En ambos casos, el archivo README.md deberá indicar el apellido y nombre de los integrantes
+del grupo.
+• Ser cargado en la sección correspondiente del Campus Virtual antes de la fecha límite
+informada en el mismo.
+
+REQUERIMIENTOS A CUMPLIMENTAR
+• Crear un documento (página web) de Inicio o Portada.
+• Crear un documento (página web) de Información Institucional.
+• Crear un documento (página web) de Contacto.
+• Cada documento deberá contar con un menú de navegación en la parte superior y un pie de página en
+la parte inferior.
+• Los documentos deberán estar vinculados entre sí mediante enlaces (<a>), de modo que se pueda
+navegar desde cualquiera de ellos hacia los demás.
+Los enlaces deberán utilizar rutas relativas y el menú de navegación deberá replicarse en todos los
+documentos.
+• Se deberá utilizar Vite como servidor de desarrollo. Para ello, dentro de la carpeta del proyecto, se
+instalará la dependencia con el comando npm install -D vite y luego levantar el servidor con
+npx vite
