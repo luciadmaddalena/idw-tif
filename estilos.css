@@ -1,0 +1,25 @@
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+@font-face {
+   font-family:'Monserrat' ;
+   src: url('./assets/Fonds/Montserrat.ttf');
+   font-weight: 100 900;
+   font-style: normal;
+}
+
+header {
+     background-color: #dee141c1;
+     padding: 1rem;
+     color: aliceblue;
+
+}
+
+body {
+   font-family: 'Monserrat';
+}
+
