@@ -13,13 +13,33 @@
 }
 
 header {
-     background-color: #dee141c1;
+     background-color: #f3f7f7c1;
      padding: 1rem;
-     color: aliceblue;
+     color: rgb(81, 163, 235);
 
 }
 
 body {
-   font-family: 'Monserrat';
+     font-family: 'Monserrat';
 }
 
+footer {
+     margin-top: 400px;
+
+}
+
+.pagina-institucional {
+     color: rgb(3, 57, 104);
+     margin-top: 50px;
+     margin-bottom: 50px;
+     text-align: left;
+
+}
+
+.pagina-contacto {
+     color: rgb(3, 57, 104);
+     margin-top: 50px;
+     margin-bottom: 50px;
+     text-align: left;   
+     margin-bottom: 25px;   
+}
