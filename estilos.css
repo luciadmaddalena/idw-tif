@@ -24,10 +24,29 @@ header p {
      color: rgb(103, 119, 135);
 }
 
+.marca h1 {
+     margin-bottom: 0.5rem;
+}
+.marca p {
+     margin-bottom: 1rem;
+}
+.menu {
+     width: fit-content;
+}
+.menu ul{
+     list-style-type: none;
+}
+.menu li {
+     display: inline-block;
+     margin-right: 1rem;
+}
+
 nav{
      display: flex;
      justify-content: space-between;
-     flex-direction: row;
+     align-items: center;
+     width: 100%;
+
 }
 
 nav ul {
@@ -36,6 +55,7 @@ nav ul {
      list-style: none;
      margin: 0;
      padding: 0;
+     margin-left: auto;
 }
 
 nav ul li {
