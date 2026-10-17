@@ -1,0 +1,118 @@
+@font-face {
+    font-family:'Monserrat' ;
+   src: url('./assets/Fonds/Montserrat.ttf');
+   font-weight: 100 900;
+   font-style: normal;
+}
+:root {
+    --font-titulos: 'Monserrat', sans-serif;
+    --font-texto: 'Monserrat', sans-serif;
+    --color-text-principal: #f3f7f7c1;
+    --color-text-secundario: #d1d9d9c1;
+    --color-text-atenuado: #d1d9d9c1;
+    --color-text-footer-label: #f3f7f7c1;
+
+    /* colores de fondos */
+    --color-bg-pagina: #F7F7F4;
+    --color-bg-tarjeta: #f3f7f7c1;
+
+    /* colores de bordes */
+    --color-borde-general:#E4E3DE;
+    --color-borde-tabla: #EDECE7;
+    --color-borde-boton-secundario: #D7D6D0;
+    
+    font-family: var(--font-texto);
+
+}
+
+header {
+    background-color:  #f3f7f7c1;
+}
+
+main {
+    background-color: #f3f7f7c1;
+}
+
+ footer { 
+    background-color:  #f3f7f7c1;
+ }
+
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100dvh;
+}
+
+header.footer {
+    flex-grow: 0;
+    flex-grow: 1;
+    flex-basis: auto;
+}
+
+main {
+    padding: 1rem;
+    flex: 1, 1, auto;
+}
+
+/* estilos del header */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon {
+    background-color: var(--color-text-atenuado);
+    height: 70px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+}
+
+.icon p {
+    color: var(--color-text-pagina);
+    font-size: 1rem;
+}
+
+.marca {
+    display: flex;
+    flex-direction: column;
+}
+
+.marca h1 {
+    font: 1.5rem;
+    font-weight: 600;
+}
+
+.marca h2 {
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.navegacion ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem; 
+}
+
+.navegacion ul a {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.boton-container {
+    margin-right: 1rem;
+    padding: 0.8rem 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.boton-container button {
+    font-size: 1rem;
+    font-weight: 6000;
+}
