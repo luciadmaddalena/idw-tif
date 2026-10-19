@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Veterinaria La Mary</title>
+
+    <script defer src="mascotas.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navegacion">
+            <div class="d-flex align-items-center gap-3" >
+                <a href="index.html" class="text-decoration-none">
+                    Página principal
+                </a>
+                <a href="contacto.html" class="btn btn-primary">
+                    Pedir turno
+                </a>
+            </div>
+        </nav>
+    </header>
+ 
+    <main>
+        <section class="container py-4">
+            <div class="row g-4">
+
+                <!-- Listado de mascotas -->
+                <article class="col-12 col-lg-7">
+                    <span class="badge rounded-pill text-bg-primary">
+                        MASCOTAS
+                    </span>
+
+                    <h2 class="fs-3 fw-semibold mt-2 mb-3">
+                        Mascotas registradas
+                        <span class="badge text-bg-secondary" id="total">0</span>
+                    </h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Dueño</th>
+                                    <th>Mascota</th>
+                                    <th>Color</th>
+                                    <th>Edad</th>
+                                    <th>Peso (kg)</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listado-mascotas">
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- Formulario -->
+                <article class="col-12 col-lg-5">
+                    <form
+                        class="d-flex flex-column gap-3 p-3 bg-body-tertiary rounded-4"
+                        id="form-mascota">
+
+                        <h3 class="fs-5 mb-0">Nueva Mascota</h3>
+
+                        <div>
+                            <label for="nombreDuenio" class="form-label">
+                                Nombre del Dueño
+                            </label>
+                            <input
+                                type="text"
+                                name="nombreDuenio"
+                                id="nombreDuenio"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="nombreMascota" class="form-label">
+                                Nombre de la Mascota
+                            </label>
+                            <input
+                                type="text"
+                                name="nombreMascota"
+                                id="nombreMascota"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="color" class="form-label">Color</label>
+                            <input
+                                type="text"
+                                name="color"
+                                id="color"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="edad" class="form-label">Edad</label>
+                            <input
+                                type="number"
+                                name="edad"
+                                id="edad"
+                                class="form-control"
+                                min="0"
+                                max="30"
+                                step="1"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="peso" class="form-label">Peso en kg</label>
+                            <input
+                                type="number"
+                                name="peso"
+                                id="peso"
+                                class="form-control"
+                                min="0.01"
+                                step="0.01"
+                                placeholder="Ejemplo: 4.5"
+                                required>
+                        </div>
+
+                        <button
+                            id="botonAgregarMascota"
+                            class="btn btn-primary"
+                            type="submit">
+                            Agregar Mascota
+                        </button>
+
+                        <button
+                            id="btnCancelar"
+                            class="btn btn-secondary d-none"
+                            type="button">
+                            Cancelar edición
+                        </button>
+                    </form>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-marca">
+            <span>La Mary</span>
+            <p>
+                Avenida las Magnolias, 520. Corrientes, Argentina
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
