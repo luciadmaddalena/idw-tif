@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <title>Veterinaria La Mary</title>
+
+    <script defer src="veterinarios.js"></script>
+</head>
+
+<body>
+
+    <header>
+        <nav class="navegación">
+            <div class="container d-flex justify-content-between align-items-center gap-2">
+                <h1 class="h3 mb-0">Veterinaria La Mary</h1>
+                <div class="d-flex align-items-center gap-3" >
+                <a href="index.html" class="text-decoration-none">
+                    Página principal
+                </a>
+                <a href="mascotas.html" class="text-decoration-none">
+                    Mascotas
+                </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+ 
+    <main>
+        <section class="container py-4">            
+            <div class="row g-4">
+
+                <!-- Listado de veterinarios -->
+                <article class="col-12 col-lg-7">
+                        <span class="badge rounded-pill text-bg-primary">
+                        VETERINARIOS
+                        </span>
+                    <h2 class="fs-3 fw-semibold mt-2 mb-3">
+                        Registrar Veterinarios
+                        <span class="badge text-bg-secondary" id="total">0</span>
+                    </h2>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Matrícula</th>
+                                    <th>Nombre</th>
+                                    <th>Especialización</th>
+                                    <th>Valor de consulta</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="listado-veterinarios">
+                            </tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- Formulario -->
+                <article class="col-12 col-lg-5">
+                    <form
+                        class="d-flex flex-column gap-3 p-3 bg-body-tertiary rounded-4"
+                        id="form-veterinario">
+
+                        <h3 class="fs-5 mb-0">Registrar Veterinario</h3>
+
+                        <div>
+                            <label for="matrícula" class="form-label">
+                                Matrícula
+                            </label>
+                            <input
+                                type="text"
+                                name="number"
+                                id="matrícula"
+                                class="form-control"
+                                min="1"
+                                step="1"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="nombre" class="form-label">
+                                Nombre y Apellido
+                            </label>
+                            <input
+                                type="text"
+                                name="nombre"
+                                id="nombre"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="especialización" class="form-label">Especialización</label>
+                            <input
+                                type="text"
+                                name="especialización"
+                                id="especialización"
+                                class="form-control"
+                                required>
+                        </div>
+
+                        <div>
+                            <label for="valorConsulta" class="form-label">Valor de consulta ($)</label>
+                            <input
+                                type="number"
+                                name="edad" 
+                                id="valorConsulta"
+                                class="form-control"
+                                min="0"
+                                step="0.01"
+                                required>
+                        </div>
+
+                        <button
+                            id="btnGuardar"
+                            class="btn btn-primary"
+                            type="submit">
+                            Guardar Veterinario
+                        </button>
+
+                        <button
+                            id="btnCancelar"
+                            class="btn btn-secondary d-none"
+                            type="button">
+                            Cancelar edición
+                        </button>
+                    </form>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-marca">
+            <span>Veterinaria La Mary</span>
+            <p>
+                Avenida las Magnolias, 520. Corrientes, Argentina
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
