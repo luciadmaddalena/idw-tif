@@ -200,30 +200,31 @@ footer {
      .seccion3 img {
          width: 100%;
          height: auto;
+          }
      }
-}
 
 /* Tarjetas del equipo veterinario */
-.card-group {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-}
+     .card-group {
+          display: flex;
+          flex-direction: row;
+          gap: 1rem;
+          }
 
-.card-group .card {
-    flex: 1 1 0;
-    min-width: 0;
-}
+     .card-group .card {
+          flex: 1 1 0;
+          min-width:                  0;
+          }
 
-.card-group .card-img-top {
-    width: 100%;
-    height: 320px;
-    object-fit: cover;
-    object-position: center 20%;
-}
+     .card-group .card-img-top {
+          width: 100%;
+          height: 320px;
+          object-fit: cover;
+          object-position: center 20%;
+          }
 
 @media (max-width: 576px) {
     .card-group {
         flex-direction: column;
-    }
-}
+     
+               }
+          }
