@@ -1,12 +1,12 @@
 @font-face {
-    font-family:'Monserrat' ;
-   src: url('./assets/Fonds/Montserrat.ttf');
-   font-weight: 100 900;
-   font-style: normal;
+    font-family:'Montserrat' ;
+    src: url('./assets/Fonds/Montserrat.ttf');
+    font-weight: 400;
+    font-style: normal;
 }
 :root {
-    --font-titulos: 'Monserrat', sans-serif;
-    --font-texto: 'Monserrat', sans-serif;
+    --font-titulos: 'Montserrat', sans-serif;
+    --font-texto: 'Montserrat', sans-serif;
     --color-text-principal: #f3f7f7c1;
     --color-text-secundario: #d1d9d9c1;
     --color-text-atenuado: #d1d9d9c1;
@@ -56,12 +56,6 @@ main {
 
 /* estilos del header */
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 .icon {
     background-color: var(--color-text-atenuado);
     height: 70px;
@@ -100,7 +94,8 @@ main {
 }
 
 .navegacion ul a {
-    font-size: 14px;
+    /* lo llevo a 1rem para unificar  */
+    font-size: 1rem;
     letter-spacing: 0.5px;
     font-weight: 600;
 }
@@ -111,8 +106,8 @@ main {
     border-radius: 10px;
     cursor: pointer;
 }
-
+     /* corrijo a 600  */
 .boton-container button {
     font-size: 1rem;
-    font-weight: 6000;
+    font-weight: 600;
 }

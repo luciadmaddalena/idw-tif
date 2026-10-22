@@ -1,6 +1,1 @@
-{
-  "dependencies": {
-    "bootstrap": "^5.3.8",
-    "vite": "^8.2.2"
-  }
-}
+{"devDependencies":{"vite":"^8.3.5"},"dependencies":{"@rolldown/binding-win32-x64-msvc":"^1.2.15","bootstrap":"^5.3.8"},"scripts":{"dev":"vite"}}
