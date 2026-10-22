@@ -67,6 +67,8 @@ function editarMascota(id) {
     editandoId = id;
 
     document.getElementById('botonAgregarMascota').textContent = 'Guardar cambios';
+    // muestra el boton de cancelar
+    document.getElementById('btnCancelar').classList.remove('d-none');
 }
 
 function eliminarMascota(id) {
