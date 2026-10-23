@@ -1,130 +1,135 @@
-let veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
+let veterinarios = JSON.parse(localStorage.getItem("veterinarios")) || [];
 let editandoId = null;
 
-const listadoVeterinarios = document.getElementById('listado-veterinarios');
+const listadoVeterinarios = document.getElementById("listado-veterinarios");
+const total = document.getElementById("total");
+const formulario = document.getElementById("form-veterinarios");
 
-const total = document.getElementById('total');
-
-const formulario = document.getElementById('form-veterinarios');
-
-const formatoMoneda = new Intl.NumberFormat('es-AR', {
-    style: "currency",
-    currency: 'ARS'
+const formatoMoneda = new Intl.NumberFormat("es-AR", {
+  style: "currency",
+  currency: "ARS",
 });
 
 function render() {
+  listadoVeterinarios.innerHTML = "";
 
-    listadoVeterinarios.innerHTML = '';
+  // Corrección 1: .map() se usa para devolver un nuevo array.
+  // Si querés inyectar HTML acumulando, podés usar .forEach() o hacer .map().join('')
+  listadoVeterinarios.innerHTML = veterinarios
+    .map(
+      (veterinario) => `
+        <tr>
+            <td>${veterinario.matricula}</td>
+            <td>${veterinario.nombre}</td>
+            <td>${veterinario.especializacion}</td>
+            <td>${formatoMoneda.format(veterinario.valorConsulta)}</td>
+            <td>
+                <img src="${veterinario.imagen}" alt="Foto de ${veterinario.nombre}" class="img-thumbnail" style="max-width: 100px;">
+            </td>
+            <td>
+                <button class="btn btn-warning btn-sm" onclick="editarVeterinario('${veterinario.idVeterinario}')">
+                Editar
+                </button>
+                <button class="btn btn-danger btn-sm" onclick="eliminarVeterinario('${veterinario.idVeterinario}')">
+                Eliminar
+                </button>
+            </td>
+        </tr>
+  `,
+    )
+    .join("");
 
-
-    veterinarios.forEach((veterinario) => {
-        listadoVeterinarios.innerHTML += `
-            <tr>
-                <td>${veterinario.matricula}</td>
-
-                <td>${veterinario.nombre}</td>
-
-                <td>${veterinario.especializacion}</td>
-
-                <td>${formatoMoneda.format(veterinario.valorConsulta)}</td>
-                <td>
-                    <button class="btn btn-warning btn-sm"
-                    onclick="editarVeterinario('${veterinario.idVeterinario}')">
-                    Editar
-                    </button>
-
-                    <button class="btn btn-danger btn-sm"
-                    onclick="eliminarVeterinario('${veterinario.idVeterinario}')">
-                    Eliminar
-                    </button>
-                </td>
-            </tr>
-                       
-        `
-    });
-
-    total.textContent = veterinarios.length;
-};
+  total.textContent = veterinarios.length;
+}
 
 render();
 
 function guardarEnLocalStorage() {
-    localStorage.setItem('veterinarios', JSON.stringify(veterinarios))
+  localStorage.setItem("veterinarios", JSON.stringify(veterinarios));
 }
 
 function editarVeterinario(id) {
-    const veterinario = veterinarios.find(
-        (veterinario) => veterinario.idVeterinario === id
-    );
+  const veterinario = veterinarios.find((v) => v.idVeterinario === id);
 
-    if (!veterinario) {
-        return;
-    }
+  if (!veterinario) {
+    return;
+  }
 
-    document.getElementById('matricula').value = veterinario.matricula;
-    document.getElementById('nombre').value = veterinario.nombre;
-    document.getElementById('especializacion').value = veterinario.especializacion;
-    document.getElementById('valorConsulta').value = veterinario.valorConsulta;
+  document.getElementById("matricula").value = veterinario.matricula;
+  document.getElementById("nombre").value = veterinario.nombre;
+  document.getElementById("especializacion").value =
+    veterinario.especializacion;
+  document.getElementById("valorConsulta").value = veterinario.valorConsulta;
 
-    editandoId = id;
+  editandoId = id;
 
-    document.getElementById('btnGuardar').textContent = 'Guardar cambios';
-    document.getElementById('btnCancelar').classList.remove('d-none');
+  document.getElementById("btnGuardar").textContent = "Guardar cambios";
+  document.getElementById("btnCancelar").classList.remove("d-none");
 }
 
 function eliminarVeterinario(id) {
-    const confirmar = confirm('¿Estás segura de que querés eliminar este veterinario?');
+  const confirmar = confirm(
+    "¿Estás segura de que querés eliminar este veterinario?",
+  );
 
-    if (!confirmar) {
-        return;
-    }
+  if (!confirmar) {
+    return;
+  }
 
-    veterinarios = veterinarios.filter(
-        (veterinario) => veterinario.idVeterinario !== id
-    );
+  veterinarios = veterinarios.filter((v) => v.idVeterinario !== id);
 
-    guardarEnLocalStorage();
-    render();
+  guardarEnLocalStorage();
+  render();
 }
 
-formulario.addEventListener('submit', (evento) => {
-    evento.preventDefault();
+formulario.addEventListener("submit", (evento) => {
+  evento.preventDefault();
 
-    const datos = new FormData(formulario);
+  const datos = new FormData(formulario);
 
-    const registrarVeterinario = {
-        idVeterinario: editandoId || crypto.randomUUID(),   
-        matricula: Number (datos.get('matricula')) || 0,
-        nombre: datos.get('nombre').trim(),
-        especializacion: datos.get('especializacion').trim(),
-        valorConsulta: Number(datos.get('valorConsulta')),
-    };
+  // Definimos una imagen por defecto o rescatamos la anterior si estamos editando
+  let imagenSeleccionada = "assets/images/vete1.jpg";
 
-    if (editandoId) {
-        const indice = veterinarios.findIndex((veterinario) => veterinario.idVeterinario === editandoId);
+  if (editandoId) {
+    const veteActual = veterinarios.find((v) => v.idVeterinario === editandoId);
+    if (veteActual) {
+      imagenSeleccionada = veteActual.imagen;
+    }
+  }
+
+  const registrarVeterinario = {
+    idVeterinario: editandoId || crypto.randomUUID(),
+    matricula: Number(datos.get("matricula")) || 0,
+    nombre: datos.get("nombre").trim(),
+    especializacion: datos.get("especializacion").trim(),
+    valorConsulta: Number(datos.get("valorConsulta")) || 0,
+    imagen: imagenSeleccionada, // Usamos la ruta limpia en texto
+  };
+
+  if (editandoId) {
+    const indice = veterinarios.findIndex(
+      (v) => v.idVeterinario === editandoId,
+    );
 
     if (indice !== -1) {
-        veterinarios[indice] = registrarVeterinario;
+      veterinarios[indice] = registrarVeterinario;
     }
-    } else {
-        veterinarios.push(registrarVeterinario);
-    }
+  } else {
+    veterinarios.push(registrarVeterinario);
+  }
 
-    guardarEnLocalStorage();
-    render();
-    formulario.reset();
+  guardarEnLocalStorage();
+  render();
+  formulario.reset();
 
-    editandoId = null
+  editandoId = null;
+  document.getElementById("btnGuardar").textContent = "Guardar Veterinario";
+  document.getElementById("btnCancelar").classList.add("d-none");
+});
 
-    document.getElementById('btnGuardar').textContent = 'Guardar Veterinario';
-    document.getElementById('btnCancelar').classList.add('d-none');
-})
-
-document.getElementById('btnCancelar').addEventListener('click', () => {
-    formulario.reset();
-
-    editandoId = null;
-
-    document.getElementById('btnGuardar').textContent = 'Guardar Veterinario';
-    document.getElementById('btnCancelar').classList.add('d-none');
+document.getElementById("btnCancelar").addEventListener("click", () => {
+  formulario.reset();
+  editandoId = null;
+  document.getElementById("btnGuardar").textContent = "Guardar Veterinario";
+  document.getElementById("btnCancelar").classList.add("d-none");
 });

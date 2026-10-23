@@ -76,15 +76,6 @@ main {
     flex-direction: column;
 }
 
-.marca h1 {
-    font: 1.5rem;
-    font-weight: 600;
-}
-
-.marca h2 {
-    font-size: 0.8rem;
-    letter-spacing: 1px;
-}
 
 .navegacion ul {
     display: flex;
