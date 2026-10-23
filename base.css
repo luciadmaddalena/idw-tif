@@ -43,11 +43,7 @@ body {
     min-height: 100dvh;
 }
 
-header.footer {
-    flex-grow: 0;
-    flex-grow: 1;
-    flex-basis: auto;
-}
+
 
 main {
     padding: 1rem;
@@ -71,25 +67,7 @@ main {
     font-size: 1rem;
 }
 
-.marca {
-    display: flex;
-    flex-direction: column;
-}
 
-
-.navegacion ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem; 
-}
-
-.navegacion ul a {
-    /* lo llevo a 1rem para unificar  */
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    font-weight: 600;
-}
 
 .boton-container {
     margin-right: 1rem;
