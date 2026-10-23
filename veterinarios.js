@@ -94,7 +94,7 @@ formulario.addEventListener('submit', (evento) => {
 
     const registrarVeterinario = {
         idVeterinario: editandoId || crypto.randomUUID(),   
-        matricula: Number (datos.get('matricula')),
+        matricula: Number (datos.get('matricula')) || 0,
         nombre: datos.get('nombre').trim(),
         especializacion: datos.get('especializacion').trim(),
         valorConsulta: Number(datos.get('valorConsulta')),

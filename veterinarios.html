@@ -81,7 +81,9 @@
                                 class="form-control"
                                 min="1"
                                 step="1"
-                                required>
+                                inputmode="numeric"
+                                required
+                                oninput="this.value = this.value.replace(/[^0-9]/g, '')">
                         </div>
 
                         <div>
@@ -98,12 +100,18 @@
 
                         <div>
                             <label for="especializacion" class="form-label">Especialización</label>
-                            <input
+                            <select
                                 type="text"
                                 name="especializacion"
                                 id="especializacion"
-                                class="form-control"
+                                class="form-select"
                                 required>
+                                <option value="">Seleccionar especialización</option>
+                                <option value="Perros">Perros</option>
+                                <option value="Gatos">Gatos</option>
+                                <option value="Aves">Aves</option>
+                                <option value="Roedores">Roedores</option>
+                            </select>
                         </div>
 
                         <div>

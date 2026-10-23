@@ -19,6 +19,8 @@ function render() {
                 <td>${mascota.nombreDuenio}</td>
 
                 <td>${mascota.nombreMascota}</td>
+                
+                <td>${mascota.especie}</td>
 
                 <td>${mascota.color}</td>
 
@@ -60,6 +62,7 @@ function editarMascota(id) {
 
     document.getElementById('nombreDuenio').value = mascota.nombreDuenio;
     document.getElementById('nombreMascota').value = mascota.nombreMascota;
+    document.getElementById('especie').value = mascota.especie;
     document.getElementById('color').value = mascota.color;
     document.getElementById('edad').value = mascota.edad;
     document.getElementById('peso').value = mascota.peso;
@@ -96,6 +99,7 @@ formulario.addEventListener('submit', (evento) => {
         idMascota: editandoId || crypto.randomUUID(),
         nombreDuenio: datos.get('nombreDuenio').trim(),
         nombreMascota: datos.get('nombreMascota').trim(),
+        especie: datos.get('especie').trim(),
         color: datos.get('color').trim(),
         edad: Number(datos.get('edad')),
         peso: parseFloat(datos.get('peso'))
