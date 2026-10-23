@@ -7,7 +7,7 @@
 
 @font-face {
    font-family:'Montserrat' ;
-   src: url('./assets/Fonds/Montserrat.ttf');
+   src: url('/assets/Fonds/Montserrat.ttf');
    font-weight: 100 900;
    font-style: normal;
 }
@@ -74,7 +74,10 @@ nav a:hover {
      color: rgb(81, 163, 235);
 }
 
-nav button {
+header nav button,
+header nav .btn-primary,
+header nav ul li .boton-container a.btn-primary,
+header nav .d-flex a.btn-primary {
      background-color: rgb(81, 163, 235);
      color: #ffffff;
      border: none;
@@ -82,13 +85,15 @@ nav button {
      border-radius: 4px;
      font-family: inherit;
      font-size: inherit;
-     font-weight: bold;
+     font-weight: normal;
      cursor: pointer;
 }
 
-nav button:hover,
-nav button:focus,
-nav button:active {
+header nav button:hover,
+header nav button:focus,
+header nav button:active 
+header nav ul li .boton-container a.btn-primary:hover,
+header nav .d-flex a.btn-primary:hover {
      background-color: rgb(67, 110, 148);
      color: #ffffff;
 }
