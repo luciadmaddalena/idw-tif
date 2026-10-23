@@ -6,7 +6,7 @@
 }
 
 @font-face {
-   font-family:'Monserrat' ;
+   font-family:'Montserrat' ;
    src: url('./assets/Fonds/Montserrat.ttf');
    font-weight: 100 900;
    font-style: normal;
@@ -95,7 +95,7 @@ nav button:active {
 
 
 body {
-     font-family: 'Monserrat';
+     font-family: 'Montserrat';
 }
 
 .seccion1 {
