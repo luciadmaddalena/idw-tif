@@ -4,56 +4,72 @@
     font-weight: 400;
     font-style: normal;
 }
+
+
 :root {
     --font-titulos: 'Montserrat', sans-serif;
     --font-texto: 'Montserrat', sans-serif;
-    --color-text-principal: #f3f7f7c1;
-    --color-text-secundario: #d1d9d9c1;
-    --color-text-atenuado: #d1d9d9c1;
-    --color-text-footer-label: #f3f7f7c1;
 
-    /* colores de fondos */
-    --color-bg-pagina: #F7F7F4;
-    --color-bg-tarjeta: #f3f7f7c1;
+    /*paleta de colores*/
+    --celeste: #51a3eb;
+    --azul-medio: #436e94;
+    --azul-oscuro: #033968;
+    --gris-medio: #677787;
+    --gris-oscuro: #314659;
+    --gris-claro: #d1d9d9c1;
+    --blanco-grisaceo: #f3f7f7c1;
+
+    --color-text-principal: var(--azul-oscuro);
+    --color-text-secundario: var(--azul-medio);
+    --color-text-atenuado: var(--gris-medio);
+    --color-text-footer-label: var(--gris-oscuro);
+    --color-text-pagina: var(--azul-oscuro);
+    -color-text-acento: var(--celeste);
+
+    --color-bg-pagina: #F3f7f7;
+    --color-bg-tarjeta: var(--blanco-grisaceo)
+    --color-bg-seccion-clara: var(--blanco-grisaceo);
+    --color-bg-seccion-gris: var(--gris-claro);
 
     /* colores de bordes */
-    --color-borde-general:#E4E3DE;
-    --color-borde-tabla: #EDECE7;
-    --color-borde-boton-secundario: #D7D6D0;
+    --color-borde-general: #c5d0d6;
+    --color-borde-tabla: #dbe3e8;
+    --color-borde-boton-secundario: #a9b8c4;
+
+    --color-boton: var(--celeste);
+    --color-boton-hover: var(--azul-medio);
     
     font-family: var(--font-texto);
 
 }
 
-header {
-    background-color:  #f3f7f7c1;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-main {
-    background-color: #f3f7f7c1;
-}
-
-footer { 
-    background-color:  #f3f7f7c1;
-}
-
-body {
+body{
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-height: 100dvh;
+    font-family: var(--font-texto);
+    background-color: var(--color-bg-pagina);
+    color: var(--color-text-principal);
 }
 
-
+header,
+main,
+footer {
+    background-color: var(--color-bg-seccion-clara);
+}
 
 main {
     padding: 1rem;
-    flex: 1, 1, auto;
 }
 
-/* estilos del header */
-
 .icon {
-    background-color: var(--color-text-atenuado);
+    background-color: var(--color-bg-seccion-gris);
     height: 70px;
     width: 70px;
     display: flex;
@@ -67,15 +83,13 @@ main {
     font-size: 1rem;
 }
 
-
-
 .boton-container {
     margin-right: 1rem;
     padding: 0.8rem 1.1rem;
     border-radius: 10px;
     cursor: pointer;
 }
-     /* corrijo a 600  */
+
 .boton-container button {
     font-size: 1rem;
     font-weight: 600;

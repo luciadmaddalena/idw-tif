@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Veterinaria La Mary</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="base.css">
-
     <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
 </head>
 
 <body>
@@ -24,6 +24,11 @@
                     <h2 class="titulo-logo">La Mary</h2>
                     <p class="subtitulo-logo">CLINICA VETERINARIA</p>
                 </div>
+            </div>
+
+            <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+            <div class="menu">
                 <ul>
                     <li>
                         <a class="active" href="index.html">Inicio</a>
@@ -50,6 +55,7 @@
                     </li>
 
                 </ul>
+            </div>
         </nav>
     </header>
 
@@ -120,23 +126,120 @@
         </section>
 
 
-
         <section class="seccion3">
             <h2>Tu tranquilidad, nuestra prioridad</h2>
-            <img src="./assets/images/veterinaria-lamary.jpg" class="img-fluid w-25" />
+            <img src="./assets/images/veterinaria-lamary.jpg" alt="Veterinaria La Mary" />
 
-            <ul>
+            <div class="accordion w-100" id="accordionServicios">
 
-                <li>Guardias por urgencias las 24 horas</li>
-                <li>Desparasitaciones</li>
-                <li>Análisis Clínicos</li>
-                <li>Farmacia Veterinaria</li>
-                <li>Asesoramiento Nutricional</li>
-                <li>Alimento balanceado</li>
-                <li>Pet Shop</li>
+                <div class="accordion-item">
+                    <h2 class="accordion-header accordion-title">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseGuardias" aria-expanded="true" aria-controls="collapseGuardias">
+                            Guardias por urgencias
+                        </button>
+                    </h2>
+                    <div id="collapseGuardias" class="accordion-collapse collapse show"
+                        data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Contamos con guardias de lunes a viernes de 9 a 20 hs, y atendemos urgencias las 24 hs,
+                            todos los días.
+                        </div>
+                    </div>
+                </div>
 
-            </ul>
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseDesparasitaciones" aria-expanded="false"
+                            aria-controls="collapseDesparasitaciones">
+                            Desparasitaciones
+                        </button>
+                    </h2>
+                    <div id="collapseDesparasitaciones" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            De lunes a viernes de 9 a 18 hs. Te recomendamos el plan según la edad y el peso de tu
+                            mascota.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseAnalisis" aria-expanded="false" aria-controls="collapseAnalisis">
+                            Análisis clínicos
+                        </button>
+                    </h2>
+                    <div id="collapseAnalisis" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Extracciones de lunes a viernes de 8 a 11 hs. Los resultados están listos en 24 a 48 hs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFarmacia" aria-expanded="false" aria-controls="collapseFarmacia">
+                            Farmacia veterinaria
+                        </button>
+                    </h2>
+                    <div id="collapseFarmacia" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Medicamentos y antiparasitarios de lunes a sábados de 9 a 20 hs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseNutricion" aria-expanded="false" aria-controls="collapseNutricion">
+                            Asesoramiento nutricional
+                        </button>
+                    </h2>
+                    <div id="collapseNutricion" class="accordion-collapse collapse"
+                        data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Consultas con turno previo, de lunes a viernes de 15 a 19 hs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseAlimento" aria-expanded="false" aria-controls="collapseAlimento">
+                            Alimento balanceado
+                        </button>
+                    </h2>
+                    <div id="collapseAlimento" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Trabajamos con distintas marcas para cada etapa de vida. Podés venir de lunes a sábados de 9
+                            a 20 hs.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapsePetShop" aria-expanded="false" aria-controls="collapsePetShop">
+                            Pet Shop
+                        </button>
+                    </h2>
+                    <div id="collapsePetShop" class="accordion-collapse collapse" data-bs-parent="#accordionServicios">
+                        <div class="accordion-body">
+                            Accesorios, juguetes y todo lo que necesite tu mascota, de lunes a sábados de 9 a 20 hs.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </section>
+
 
         <section class="seccion4">
             <h2>Horarios de Atención</h2>

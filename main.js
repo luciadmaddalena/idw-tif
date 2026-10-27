@@ -1,3 +1,14 @@
+const boton = document.querySelector('.hamburguesa');
+const menu = document.querySelector('.menu');
+
+boton.addEventListener('click', () => {
+    const abierto = menu.classList.toggle('abierto');
+    boton.setAttribute('aria-expanded', abierto);
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     const contenedorEquipo = document.getElementById('equipo-container');
 
@@ -31,3 +42,4 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
     });
 });
+
