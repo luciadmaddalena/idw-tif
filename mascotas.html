@@ -4,30 +4,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="base.css">
     <title>Veterinaria La Mary</title>
 
     <script defer src="mascotas.js"></script>
 </head>
 
-<body>
-
+<body class="d-flex flex-column min-vh-100 bg-light">
     <header>
-        <!-- Lo llevo a la derecha -->
-        <nav class="navegacion  d-flex justify-content-end w-100">
-            <div class="d-flex align-items-center gap-3" >
-                <a href="index.html" class="text-decoration-none">
-                    Página principal
-                </a>
-                <a href="contacto.html" class="btn btn-primary">
-                    Pedir turno
-                </a>
+        <nav class="navegacion">
+            <div class="logo">
+                <div class="icon">
+                    <p>MedVet</p>
+                </div>
+                <div class="marca">
+                    <h2 class="titulo-logo">La Mary</h2>
+                    <p class="subtitulo-logo">CLINICA VETERINARIA</p>
+                </div>
+            </div>
+
+            <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a class="active" href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="institucional.html">Institucional</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="Mascotas.html">Mascotas</a>
+                    </li>
+                    <li>
+                        <a href="Veterinarios.html">Veterinarios</a>
+                    </li>
+                    <li>
+                        <div class="boton-container">
+                            <a href="contacto.html" class="btn btn-primary">
+                                Pedir Turno
+                            </a>
+
+                        </div>
+                    </li>
+
+                </ul>
             </div>
         </nav>
     </header>
- 
+
     <main>
         <section class="container py-4">
             <div class="row g-4">
