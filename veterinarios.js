@@ -15,9 +15,6 @@ const formatoMoneda = new Intl.NumberFormat("es-AR", {
 
 function render() {
   listadoVeterinarios.innerHTML = "";
-
-  // Corrección 1: .map() se usa para devolver un nuevo array.
-  // Si querés inyectar HTML acumulando, podés usar .forEach() o hacer .map().join('')
   listadoVeterinarios.innerHTML = veterinarios
     .map(
       (veterinario) => `
@@ -27,7 +24,7 @@ function render() {
             <td>${veterinario.especializacion}</td>
             <td>${formatoMoneda.format(veterinario.valorConsulta)}</td>
             <td>
-                <img src="${veterinario.imagen}" alt="Foto de ${veterinario.nombre}" class="img-thumbnail" style="max-width: 100px;">
+                <img src="${veterinario.imagen || IMAGEN_POR_DEFECTO}" alt="Foto de ${veterinario.nombre}" class="img-thumbnail" style="max-width: 100px;">
             </td>
             <td>
                 <button class="btn btn-warning btn-sm" onclick="editarVeterinario('${veterinario.idVeterinario}')">
@@ -48,7 +45,49 @@ function render() {
 render();
 
 function guardarEnLocalStorage() {
+  try {
   localStorage.setItem("veterinarios", JSON.stringify(veterinarios));
+  return true;
+  } catch (error) {
+    alert("No se pudo guardar: el espacio esta lleno. Proba con una foto mas chica o elimina un veterinario")
+    return false;
+  }
+}
+
+function leerImagen(archivo) {
+  return new Promise((resolve, reject) => {
+    const lector = new FileReader();
+
+    lector.onerror = () => reject(new Error("No se pudo leer la imagen"));
+
+    lector.onload = () => {
+      const img = new Image();
+
+      img.onerror = () => reject(new Error("El archivo no es una imagen valida"));
+
+      img.onload = () => {
+        const anchoMaximo = 400;
+        const escala = Math.min(1, anchoMaximo / img.width);
+
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width * escala;
+        canvas.height = img.height * escala;
+        canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        resolve(canvas.toDataURL("image/jpeg", 0.8));
+      };
+
+      img.src = lector.result;
+    };
+    lector.readAsDataURL(archivo);
+  });
+}
+
+function resetearFormulario() {
+  formulario.reset();
+  editandoId = null;
+  document.getElementById("btnGuardar").textContent = "Guardar Veterinario";
+  document.getElementById("btnCancelar").classList.add("d-none");
 }
 
 function editarVeterinario(id) {
@@ -64,6 +103,8 @@ function editarVeterinario(id) {
     veterinario.especializacion;
   document.getElementById("valorConsulta").value = veterinario.valorConsulta;
 
+  inputImagen.value = "";
+
   editandoId = id;
 
   document.getElementById("btnGuardar").textContent = "Guardar cambios";
@@ -72,7 +113,7 @@ function editarVeterinario(id) {
 
 function eliminarVeterinario(id) {
   const confirmar = confirm(
-    "¿Estás segura de que querés eliminar este veterinario?",
+    "¿Estás seguro de que querés eliminar este veterinario?",
   );
 
   if (!confirmar) {
@@ -85,18 +126,28 @@ function eliminarVeterinario(id) {
   render();
 }
 
-formulario.addEventListener("submit", (evento) => {
+formulario.addEventListener("submit", async (evento) => {
   evento.preventDefault();
 
   const datos = new FormData(formulario);
 
-  // Definimos una imagen por defecto o rescatamos la anterior si estamos editando
-  let imagenSeleccionada = "assets/images/vete1.jpg";
+  let imagenSeleccionada = IMAGEN_POR_DEFECTO;
 
   if (editandoId) {
     const veteActual = veterinarios.find((v) => v.idVeterinario === editandoId);
     if (veteActual) {
       imagenSeleccionada = veteActual.imagen;
+    }
+  }
+
+  const archivo = inputImagen.files[0];
+
+  if (archivo) {
+    try {
+      imagenSeleccionada = await leerImagen(archivo);
+    } catch (error) {
+      alert(error.message);
+      return;
     }
   }
 
@@ -106,7 +157,7 @@ formulario.addEventListener("submit", (evento) => {
     nombre: datos.get("nombre").trim(),
     especializacion: datos.get("especializacion").trim(),
     valorConsulta: Number(datos.get("valorConsulta")) || 0,
-    imagen: imagenSeleccionada, // Usamos la ruta limpia en texto
+    imagen: imagenSeleccionada,
   };
 
   if (editandoId) {
@@ -123,16 +174,7 @@ formulario.addEventListener("submit", (evento) => {
 
   guardarEnLocalStorage();
   render();
-  formulario.reset();
-
-  editandoId = null;
-  document.getElementById("btnGuardar").textContent = "Guardar Veterinario";
-  document.getElementById("btnCancelar").classList.add("d-none");
+  resetearFormulario();
 });
 
-document.getElementById("btnCancelar").addEventListener("click", () => {
-  formulario.reset();
-  editandoId = null;
-  document.getElementById("btnGuardar").textContent = "Guardar Veterinario";
-  document.getElementById("btnCancelar").classList.add("d-none");
-});
+document.getElementById("btnCancelar").addEventListener("click", resetearFormulario);
