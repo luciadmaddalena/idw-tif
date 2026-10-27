@@ -1,9 +1,12 @@
 let veterinarios = JSON.parse(localStorage.getItem("veterinarios")) || [];
 let editandoId = null;
 
+const IMAGEN_POR_DEFECTO = "assets/images/vete1.jpg";
+
 const listadoVeterinarios = document.getElementById("listado-veterinarios");
 const total = document.getElementById("total");
 const formulario = document.getElementById("form-veterinarios");
+const inputImagen = document.getElementById("imagen");
 
 const formatoMoneda = new Intl.NumberFormat("es-AR", {
   style: "currency",
