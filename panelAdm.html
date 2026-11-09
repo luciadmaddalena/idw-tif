@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="base.css">
+
+    </title>Veterinaria La Mary</title>
+
+</head>
+
+<body>
+
+    <header>
+        <nav class="navegacion">
+            <div class="container d-flex justify-content-between align-items-center gap-2">
+
+                <h1 class="h3 mb-0">Veterinaria La Mary</h1>
+
+                <a href="index.html" class="text-decoration-none">
+                    Página principal
+                </a>
+
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container py-5">
+
+            <h2 class="fs-3 mb-3">Panel de Administración</h2>
+
+            <p>
+                Bienvenido a Veterinaria La Mary.
+            </p>
+
+            <p id="nombreUsuario"></p>
+
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-marca">
+            <span>Veterinaria La Mary</span>
+            <p>
+                Avenida las Magnolias, 520. Corrientes, Argentina.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+    const usuario = sessionStorage.getItem('usuario');
+
+    document.getElementById('nombreUsuario').textContent =
+        'Bienvenido/a ' + usuario;
+</script>
+
+</body>
+</html>
