@@ -39,7 +39,9 @@
                 Bienvenido a Veterinaria La Mary.
             </p>
 
-            <p id="nombreUsuario"></p>
+            <p id="nombre-usuario"></p>
+            <p id="total-mascotas"></p>
+
 
         </section>
     </main>
@@ -53,12 +55,9 @@
         </div>
     </footer>
 
-    <script>
-    const usuario = sessionStorage.getItem('usuario');
+    <script src="sesion.js"></script>
+    <script src="panelAdm.js"></script>
 
-    document.getElementById('nombreUsuario').textContent =
-        'Bienvenido/a ' + usuario;
-</script>
 
 </body>
 </html>
