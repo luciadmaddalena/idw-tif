@@ -39,18 +39,104 @@
         </nav>
     </header>
 
-    <main>
+<main class="flex-grow-1">
         <section class="container py-5">
 
-            <h2 class="fs-3 mb-3">Panel de Administración</h2>
+            <!-- Encabezado estilo tarjeta -->
+            <div class="mb-4">
+                <span class="badge rounded-pill text-bg-primary text-uppercase px-3 py-2 mb-2">
+                    PANEL ADMIN
+                </span>
+                
+                <!-- traemos el nombre de usuario para el saludo  -->
+                <h2 class="display-6 fw-bold mb-1" id="nombre-usuario">Hola, Emily</h2>
+                
+                <p class="text-muted">
+                    Elegí un módulo para gestionar.
+                </p>
+            </div>
 
-            <p>
-                Bienvenido a Veterinaria La Mary.
-            </p>
+            <!-- separé en 4 módulos -->
+            <div class="row g-4">
 
-            <p id="nombre-usuario"></p>
-            <p id="total-mascotas"></p>
+                <!-- Módulo Mascotas -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-light-subtle rounded-3">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">Mascotas</h3>
+                                <p class="card-text text-muted small mb-3">
+                                    Alta, edición y baja de mascotas.
+                                </p>
+                                <!-- contamos las mascotas registradas -->
+                                <span 
+                                class="badge bg-secondary mb-4" 
+                                id="total-mascotas">0 registradas
+                                </span>
+                            </div>
+                            <a href="./mascotas.html" class="btn btn-primary w-100">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Módulo Veterinarios -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-light-subtle rounded-3">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">Veterinarios</h3>
+                                <p class="card-text text-muted small mb-3">
+                                    Gestión del equipo profesional.
+                                </p>
+                                <span 
+                                class="badge bg-secondary mb-4" 
+                                id="total-veterinarios">0 registrados
+                                </span>
+                            </div>
+                            <a href="./veterinarios.html" class="btn btn-primary w-100">Ingresar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo  Turnos -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-light-subtle rounded-3">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">Turnos</h3>
+                                <p class="card-text text-muted small mb-3">
+                                    Agenda de turnos de la clínica.
+                                </p>
+                                <span 
+                                class="badge text-bg-warning mb-4"
+                                id="total-turnos">
+                                >Próximamente</span>
+                            </div>
+                            <button class="btn btn-primary w-100" disabled>Ingresar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Módulo Historia Clínica -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="card h-100 shadow-sm border-light-subtle rounded-3">
+                        <div class="card-body d-flex flex-column justify-content-between p-4">
+                            <div>
+                                <h3 class="h5 fw-bold mb-2">Historia Clínica</h3>
+                                <p class="card-text text-muted small mb-3">
+                                    Registro de consultas y tratamientos.
+                                </p>
+                                <span 
+                                class="badge text-bg-warning mb-4"
+                                id="total-historias">
+                                >Próximamente</span>
+                            </div>
+                            <button class="btn btn-primary w-100" disabled>Ingresar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 
         </section>
     </main>
@@ -66,6 +152,7 @@
 
     <script src="sesion.js"></script>
     <script src="header.js"></script>
+    <script src="panelAdmin.js"></script>
 
 
 </body>

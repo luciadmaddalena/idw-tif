@@ -15,8 +15,10 @@ if (estaLogueado()) {
             <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
         </li>
     `;
-
-    document.getElementById('link-login').remove();
+    const linkLogin = document.getElementById('link-login') || document.getElementById('link-container');
+    if (linkLogin) {
+        linkLogin.remove();
+    }
 }
 
 const botonMenu = document.querySelector('.hamburguesa');
