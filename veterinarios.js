@@ -1,3 +1,8 @@
+//para proteger la pagina de veterinarios y mascotas, si no esta logueado lo redirige al login
+if (!estaLogueado()) {
+    window.location.href = 'login.html';
+}
+
 let veterinarios = JSON.parse(localStorage.getItem("veterinarios")) || [];
 let editandoId = null;
 

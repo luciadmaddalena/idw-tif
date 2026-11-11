@@ -12,3 +12,9 @@ function cerrarSesion() {
 
     window.location.href = 'login.html';
 }
+
+function protegerPagina() {
+    if (!estaLogueado()) {
+        window.location.href = 'login.html';
+    }
+}
