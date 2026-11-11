@@ -11,6 +11,9 @@ const inputImagen = document.getElementById("imagen");
 const formatoMoneda = new Intl.NumberFormat("es-AR", {
   style: "currency",
   currency: "ARS",
+  // Agrego estas opciones para que no muestre decimales
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 0,
 });
 
 function render() {
