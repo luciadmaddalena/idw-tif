@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="base.css">
+    <title>Veterinaria La Mary</title>
+    <!-- primero agrego el script de sesion.js para proteger la pagina de mascotas, si no esta logueado lo redirige al login -->
+    <script defer src="./sesion.js"></script>
+    <script defer src="./header.js"></script>
+    <script defer src="./historia-clinica.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100 bg-light">
+    <header>
+        <nav class="navegacion">
+            <div class="logo">
+                <div class="icon">
+                    <p>MedVet</p>
+                </div>
+                <div class="marca">
+                    <h2 class="titulo-logo">La Mary</h2>
+                    <p class="subtitulo-logo">CLINICA VETERINARIA</p>
+                </div>
+            </div>
+
+            <button class="hamburguesa" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="index.html">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="institucional.html">Institucional</a>
+                    </li>
+                    <li>
+                        <a href="contacto.html">Contacto</a>
+                    </li>
+                    <li>
+                        <a class="active" href="">Historia Clinica</a>
+                    </li>
+
+                    <li id="link-login">
+
+                        <a href="./login.html" class="boton-container">
+
+                            <button>Iniciar Sesión</button>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container py-4">
+            <div class="row g-4">
+
+                <!-- Historial -->
+                <article class="col-12 col-lg-7">
+                    <span class="badge rounded-pill text-bg-primary">HISTORIA CLÍNICA</span>
+
+                    <h2 class="fs-3 fw-semibold mt-2 mb-3">
+                        Historial
+                        <span class="badge text-bg-secondary" id="total">0</span>
+                    </h2>
+
+                    <div class="mb-3">
+                        <label for="filtro-mascota" class="form-label">Ver historial de:</label>
+                        <select id="filtro-mascota" class="form-select">
+                            <option value="">Todas las mascotas</option>
+                        </select>
+                    </div>
+
+                    <!-- Ficha de la mascota elegida -->
+                    <div id="ficha-mascota" class="alert alert-info d-none"></div>
+
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Mascota</th>
+                                    <th>Motivo</th>
+                                    <th>Diagnóstico</th>
+                                    <th>Tratamiento</th>
+                                    <th>Peso (kg)</th>
+                                    <th>Temp. (°C)</th>
+                                    <th>Próx. control</th>
+                                    <th>Veterinario</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listado-historias"></tbody>
+                        </table>
+                    </div>
+                </article>
+
+                <!-- Formulario -->
+                <article class="col-12 col-lg-5">
+                    <form class="d-flex flex-column gap-3 p-3 bg-body-tertiary rounded-4" id="form-historia">
+                        <h3 class="fs-5 mb-0">Nueva consulta</h3>
+
+                        <div>
+                            <label for="mascotaId" class="form-label">Mascota</label>
+                            <select id="mascotaId" class="form-select" required>
+                                <option value="">Seleccionar mascota</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="veterinarioId" class="form-label">Veterinario</label>
+                            <select id="veterinarioId" class="form-select" required>
+                                <option value="">Seleccionar veterinario</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" id="fecha" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="motivo" class="form-label">Motivo de la consulta</label>
+                            <input type="text" id="motivo" class="form-control" required>
+                        </div>
+
+                        <div>
+                            <label for="diagnostico" class="form-label">Diagnóstico</label>
+                            <textarea id="diagnostico" class="form-control" rows="2" required></textarea>
+                        </div>
+
+                        <div>
+                            <label for="tratamiento" class="form-label">Tratamiento</label>
+                            <textarea id="tratamiento" class="form-control" rows="2" required></textarea>
+                        </div>
+
+                        <div>
+                            <label for="peso" class="form-label">Peso en kg (opcional)</label>
+                            <input type="number" id="peso" class="form-control" min="0.01" step="0.01">
+                        </div>
+
+                        <div>
+                            <label for="temperatura" class="form-label">Temperatura en °C (opcional)</label>
+                            <input type="number" id="temperatura" class="form-control" min="30" max="45" step="0.1">
+                        </div>
+
+                        <div>
+                            <label for="proximoControl" class="form-label">Próximo control (opcional)</label>
+                            <input type="date" id="proximoControl" class="form-control">
+                        </div>
+
+                        <button class="btn btn-primary" type="submit">Registrar consulta</button>
+                    </form>
+                </article>
+
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-marca">
+            <span>Veterinaria La Mary</span>
+            <p>
+                Avenida las Magnolias, 520. Corrientes, Argentina
+            </p>
+        </div>
+    </footer>
+
+   
+
+</body>
+</html>
+
