@@ -27,7 +27,7 @@
     -color-text-acento: var(--celeste);
 
     --color-bg-pagina: #F3f7f7;
-    --color-bg-tarjeta: var(--blanco-grisaceo)
+    --color-bg-tarjeta: var(--blanco-grisaceo);
     --color-bg-seccion-clara: var(--blanco-grisaceo);
     --color-bg-seccion-gris: var(--gris-claro);
 

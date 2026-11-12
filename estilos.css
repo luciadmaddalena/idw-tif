@@ -122,7 +122,8 @@ header nav .d-flex a.btn-primary {
 
 header nav button:hover,
 header nav button:focus,
-header nav button:active header nav ul li .boton-container a.btn-primary:hover,
+header nav button:active, 
+header nav ul li .boton-container a.btn-primary:hover,
 header nav .d-flex a.btn-primary:hover {
   background-color: var(--color-boton-hover);
   color: #ffffff;
