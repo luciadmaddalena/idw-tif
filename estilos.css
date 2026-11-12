@@ -67,6 +67,10 @@ nav a:hover {
   color: var(--celeste);
 }
 
+.active {
+  color: var(--celeste);
+}
+
 header nav button,
 header nav .btn-primary,
 header nav ul li .boton-container a.btn-primary,
