@@ -27,7 +27,7 @@ function guardarLista(clave, lista) {
 function buscarMascota(id) {
   const mascotas = leerLista(CLAVE_MASCOTAS);
   for (let i = 0; i < mascotas.length; i++) {
-    if (String(mascotas[i].id) === String(id)) {
+    if (String(mascotas[i].idMascota) === String(id)) {
       return mascotas[i]; // la encontré
     }
   }
@@ -70,8 +70,8 @@ function cargarSelects() {
   for (let i = 0; i < mascotas.length; i++) {
     const texto =
       mascotas[i].nombreMascota + " (" + mascotas[i].nombreDuenio + ")";
-    agregarOpcion(selectMascota, mascotas[i].id, texto);
-    agregarOpcion(filtro, mascotas[i].id, texto);
+    agregarOpcion(selectMascota, mascotas[i].idMascota, texto);
+    agregarOpcion(filtro, mascotas[i].idMascota, texto);
   }
 
   const veterinarios = leerLista(CLAVE_VETERINARIOS);
@@ -144,6 +144,19 @@ function renderizar() {
     fila.appendChild(crearCelda(h.temperatura));
     fila.appendChild(crearCelda(h.proximoControl));
     fila.appendChild(crearCelda(nombreVeterinario(h.veterinarioId)));
+
+    const celdaAcciones = document.createElement("td");
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.className = "btn btn-danger btn-sm";
+    
+    botonEliminar.addEventListener("click", function () {
+      eliminarHistoria(h.id); // Llamamos a la función pasándole el ID de la historia
+    });
+    
+    celdaAcciones.appendChild(botonEliminar);
+    fila.appendChild(celdaAcciones);
+
     tbody.appendChild(fila);
 
     cantidad++;
@@ -152,6 +165,29 @@ function renderizar() {
   total.textContent = cantidad;
   mostrarFicha(idFiltro);
 }
+
+// eliminar una historia clinica
+function eliminarHistoria(id) {
+  const confirmar = confirm("¿Seguro que querés eliminar esta historia clínica?");
+  if (!confirmar) {
+    return;
+  }
+
+  const historias = leerLista(CLAVE_HISTORIAS);
+  const historiasQuedan = [];
+
+  // recorremos la lista y guardamos todas MENOS la que queremos borrar
+  for (let i = 0; i < historias.length; i++) {
+    if (historias[i].id !== id) {
+      historiasQuedan.push(historias[i]);
+    }
+  }
+
+  // guardamos la nueva lista en el localStorage y volvemos a renderizar la tabla
+  guardarLista(CLAVE_HISTORIAS, historiasQuedan);
+  renderizar();
+}
+
 
 // guardar una consulta nueva
 function guardarHistoria(evento) {

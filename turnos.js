@@ -32,7 +32,7 @@ function guardarLista(clave, lista) {
 function buscarMascota(id) {
   const mascotas = leerLista(CLAVE_MASCOTAS);
   for (let i = 0; i < mascotas.length; i++) {
-    if (String(mascotas[i].id) === String(id)) {
+    if (String(mascotas[i].idMascota) === String(id)) {
       return mascotas[i];
     }
   }
@@ -61,7 +61,7 @@ function cargarSelects() {
   const mascotas = leerLista(CLAVE_MASCOTAS);
   for (let i = 0; i < mascotas.length; i++) {
     const texto = mascotas[i].nombreMascota + " (" + mascotas[i].nombreDuenio + ")";
-    agregarOpcion(selectMascota, mascotas[i].id, texto);
+    agregarOpcion(selectMascota, mascotas[i].idMascota, texto);
   }
 
   const veterinarios = leerLista(CLAVE_VETERINARIOS);
