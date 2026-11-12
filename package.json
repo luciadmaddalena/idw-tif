@@ -1,1 +1,1 @@
-{"devDependencies":{"vite":"^8.3.5"},"dependencies":{"@rolldown/binding-win32-x64-msvc":"^1.2.15","bootstrap":"^5.3.8"},"scripts":{"dev":"vite"}}
+{"devDependencies":{"vite":"^8.3.8"},"dependencies":{"@rolldown/binding-win32-x64-msvc":"^1.2.15","bootstrap":"^5.3.8"},"scripts":{"dev":"vite"}}
