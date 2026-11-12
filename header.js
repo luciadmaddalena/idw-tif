@@ -2,20 +2,14 @@ const listaItems = document.querySelector(".navegacion ul");
 
 if (estaLogueado()) {
   listaItems.innerHTML += `
-        <li>
-            <a href="panelAdmin.html">Panel</a>
-        </li>
-        <li>
-            <a href="mascotas.html">Mascotas</a>
-        </li>
-        <li>
-            <a href="veterinarios.html">Veterinarios</a>
-        </li>
-                <li>
-            <a href="turnos.html">Turnos</a>
-        </li>
-        <li>
-            <a href="historia-clinica.html">Historia Clínica</a>
+        <li class="menu-panel">
+            <a href="panelAdmin.html">Panel ▼</a>
+             <ul class="submenu">
+                <li><a href="mascotas.html">Mascotas</a></li>
+                <li><a href="veterinarios.html">Veterinarios</a></li>
+                <li><a href="turnos.html">Turnos</a></li>
+                <li><a href="historia-clinica.html">Historia Clínica</a></li>
+            </ul>
         </li>
         <li>
             <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
@@ -29,13 +23,3 @@ if (estaLogueado()) {
   }
 }
 
-const botonMenu = document.querySelector(".hamburguesa");
-const menu = document.querySelector(".menu");
-
-if (botonMenu && menu) {
-  botonMenu.addEventListener("click", () => {
-    const abierto = menu.classList.toggle("abierto");
-
-    botonMenu.setAttribute("aria-expanded", abierto);
-  });
-}

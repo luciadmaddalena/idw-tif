@@ -43,6 +43,40 @@ nav {
   margin-right: 1rem;
 }
 
+.menu-panel {
+  position: relative; /* el submenú se ubica respecto a este li */
+}
+
+.menu-panel > .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 100;
+}
+
+.menu-panel:hover > .submenu,
+.menu-panel.abierto > .submenu {
+  display: block;
+}
+
+/* por si tu .menu ul usa flex, esto lo pisa y apila los items */
+.menu-panel > .submenu {
+  flex-direction: column;
+  gap: 0;
+}
+
+.menu-panel > .submenu a {
+  display: block;
+  padding: 10px 14px;
+}
+
 nav ul {
   display: flex;
   flex-direction: row;
