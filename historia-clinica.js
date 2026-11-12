@@ -37,7 +37,7 @@ function buscarMascota(id) {
 function buscarVeterinario(id) {
   const veterinarios = leerLista(CLAVE_VETERINARIOS);
   for (let i = 0; i < veterinarios.length; i++) {
-    if (String(veterinarios[i].id) === String(id)) {
+    if (veterinarios[i].idVeterinario === id) {
       return veterinarios[i];
     }
   }
@@ -76,10 +76,11 @@ function cargarSelects() {
 
   const veterinarios = leerLista(CLAVE_VETERINARIOS);
   for (let i = 0; i < veterinarios.length; i++) {
+    // el valor es el idVeterinario y el texto es directamente el nombre
     agregarOpcion(
       selectVeterinario,
-      veterinarios[i].id,
-      nombreVeterinario(veterinarios[i].id),
+      veterinarios[i].idVeterinario,
+      veterinarios[i].nombre,
     );
   }
 }
@@ -134,14 +135,14 @@ function renderizar() {
     }
 
     const fila = document.createElement("tr");
-    fila.appendChild(crearCelda(formatearFecha(h.fecha)));
+    fila.appendChild(crearCelda(h.fecha));
     fila.appendChild(crearCelda(nombreMascota));
     fila.appendChild(crearCelda(h.motivo));
     fila.appendChild(crearCelda(h.diagnostico));
     fila.appendChild(crearCelda(h.tratamiento));
     fila.appendChild(crearCelda(h.peso));
     fila.appendChild(crearCelda(h.temperatura));
-    fila.appendChild(crearCelda(formatearFecha(h.proximoControl)));
+    fila.appendChild(crearCelda(h.proximoControl));
     fila.appendChild(crearCelda(nombreVeterinario(h.veterinarioId)));
     tbody.appendChild(fila);
 

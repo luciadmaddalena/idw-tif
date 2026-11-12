@@ -12,6 +12,9 @@ if (estaLogueado()) {
             <a href="veterinarios.html">Veterinarios</a>
         </li>
         <li>
+            <a href="historia-clinica.html">Historia Clínica</a>
+        </li>
+        <li>
             <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
         </li>
     `;
