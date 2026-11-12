@@ -1,12 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="estilos.css">
-    <link rel="stylesheet" href="base.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="estilos.css" />
+    <link rel="stylesheet" href="base.css" />
     <title>Veterinaria La Mary</title>
     <!-- primero agrego el script de sesion.js para proteger la pagina de mascotas, si no esta logueado lo redirige al login -->
     <script defer src="./datos-iniciales.js"></script>
@@ -15,114 +17,123 @@
     <script defer src="./menu.js"></script>
     <script defer src="./turnos.js"></script>
     <script defer src="./historia-clinica.js"></script>
-</head>
-<header>
-    <nav class="navegacion">
-        <div class="container d-flex justify-content-between align-items-center gap-2">
+  </head>
 
-            <h1 class="h3 mb-0">Veterinaria La Mary</h1>
+  <body>
+    <header>
+      <nav class="navegacion">
+        <div
+          class="container d-flex justify-content-between align-items-center gap-2"
+        >
+          <h1 class="h3 mb-0">Veterinaria La Mary</h1>
 
-            <ul>
-                <li>
-                    <a href="./index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="./institucional.html">Institucional</a>
-                </li>
-                <li>
-                    <a href="./contacto.html">Contacto</a>
-                </li>
-                <li id="link-login">
-                    <a href="./login.html">Iniciar Sesión</a>
-                </li>
-            </ul>
+          <ul>
+            <li>
+              <a href="./index.html">Inicio</a>
+            </li>
+            <li>
+              <a href="./institucional.html">Institucional</a>
+            </li>
+            <li>
+              <a href="./contacto.html">Contacto</a>
+            </li>
+            <li id="link-login">
+              <a href="./login.html">Iniciar Sesión</a>
+            </li>
+          </ul>
         </div>
-    </nav>
-</header>
-<main>
-    <section class="container py-4">
+      </nav>
+    </header>
+
+    <main>
+      <section class="container py-4">
         <div class="row g-4">
+          <!-- Listado de turnos -->
+          <article class="col-12 col-lg-7">
+            <span class="badge rounded-pill text-bg-primary">TURNOS</span>
 
-            <!-- Listado de turnos -->
-            <article class="col-12 col-lg-7">
-                <span class="badge rounded-pill text-bg-primary">TURNOS</span>
+            <h2 class="fs-3 fw-semibold mt-2 mb-3">
+              Turnos agendados
+              <span class="badge text-bg-secondary" id="total">0</span>
+            </h2>
 
-                <h2 class="fs-3 fw-semibold mt-2 mb-3">
-                    Turnos agendados
-                    <span class="badge text-bg-secondary" id="total">0</span>
-                </h2>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Mascota</th>
+                    <th>Dueño</th>
+                    <th>Veterinario</th>
+                    <th>Motivo</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id="listado-turnos"></tbody>
+              </table>
+            </div>
+          </article>
 
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th>Fecha</th>
-                                <th>Hora</th>
-                                <th>Mascota</th>
-                                <th>Dueño</th>
-                                <th>Veterinario</th>
-                                <th>Motivo</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody id="listado-turnos"></tbody>
-                    </table>
-                </div>
-            </article>
+          <!-- Formulario -->
+          <article class="col-12 col-lg-5">
+            <form
+              class="d-flex flex-column gap-3 p-3 bg-body-tertiary rounded-4"
+              id="form-turno"
+            >
+              <h3 class="fs-5 mb-0">Nuevo turno</h3>
 
-            <!-- Formulario -->
-            <article class="col-12 col-lg-5">
-                <form class="d-flex flex-column gap-3 p-3 bg-body-tertiary rounded-4" id="form-turno">
-                    <h3 class="fs-5 mb-0">Nuevo turno</h3>
+              <div>
+                <label for="mascotaId" class="form-label">Mascota</label>
+                <select id="mascotaId" class="form-select" required>
+                  <option value="">Seleccionar mascota</option>
+                </select>
+              </div>
 
-                    <div>
-                        <label for="mascotaId" class="form-label">Mascota</label>
-                        <select id="mascotaId" class="form-select" required>
-                            <option value="">Seleccionar mascota</option>
-                        </select>
-                    </div>
+              <div>
+                <label for="veterinarioId" class="form-label"
+                  >Veterinario</label
+                >
+                <select id="veterinarioId" class="form-select" required>
+                  <option value="">Seleccionar veterinario</option>
+                </select>
+              </div>
 
-                    <div>
-                        <label for="veterinarioId" class="form-label">Veterinario</label>
-                        <select id="veterinarioId" class="form-select" required>
-                            <option value="">Seleccionar veterinario</option>
-                        </select>
-                    </div>
+              <div>
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="date" id="fecha" class="form-control" required />
+              </div>
 
-                    <div>
-                        <label for="fecha" class="form-label">Fecha</label>
-                        <input type="date" id="fecha" class="form-control" required>
-                    </div>
+              <div>
+                <label for="hora" class="form-label">Hora</label>
+                <input
+                  type="time"
+                  id="hora"
+                  class="form-control"
+                  step="1800"
+                  required
+                />
+              </div>
 
-                    <div>
-                        <label for="hora" class="form-label">Hora</label>
-                        <input type="time" id="hora" class="form-control" step="1800" required>
-                    </div>
+              <div>
+                <label for="motivo" class="form-label">Motivo</label>
+                <input type="text" id="motivo" class="form-control" required />
+              </div>
 
-                    <div>
-                        <label for="motivo" class="form-label">Motivo</label>
-                        <input type="text" id="motivo" class="form-control" required>
-                    </div>
-
-                    <button class="btn btn-primary" type="submit">Agendar turno</button>
-                </form>
-            </article>
-
+              <button class="btn btn-primary" type="submit">
+                Agendar turno
+              </button>
+            </form>
+          </article>
         </div>
-    </section>
-</main>
+      </section>
+    </main>
 
-<footer>
-    <div class="footer-marca">
+    <footer>
+      <div class="footer-marca">
         <span>Veterinaria La Mary</span>
-        <p>
-            Avenida las Magnolias, 520. Corrientes, Argentina
-        </p>
-    </div>
-</footer>
-
-
-
-</body>
-
+        <p>Avenida las Magnolias, 520. Corrientes, Argentina</p>
+      </div>
+    </footer>
+  </body>
 </html>
