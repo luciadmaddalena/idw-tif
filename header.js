@@ -1,7 +1,7 @@
-const listaItems = document.querySelector('.navegacion ul');
+const listaItems = document.querySelector(".navegacion ul");
 
 if (estaLogueado()) {
-    listaItems.innerHTML += `
+  listaItems.innerHTML += `
         <li>
             <a href="panelAdmin.html">Panel</a>
         </li>
@@ -11,6 +11,9 @@ if (estaLogueado()) {
         <li>
             <a href="veterinarios.html">Veterinarios</a>
         </li>
+                <li>
+            <a href="turnos.html">Turnos</a>
+        </li>
         <li>
             <a href="historia-clinica.html">Historia Clínica</a>
         </li>
@@ -18,19 +21,21 @@ if (estaLogueado()) {
             <button class="btn btn-secondary" onclick="cerrarSesion()">Cerrar Sesión</button>
         </li>
     `;
-    const linkLogin = document.getElementById('link-login') || document.getElementById('link-container');
-    if (linkLogin) {
-        linkLogin.remove();
-    }
+  const linkLogin =
+    document.getElementById("link-login") ||
+    document.getElementById("link-container");
+  if (linkLogin) {
+    linkLogin.remove();
+  }
 }
 
-const botonMenu = document.querySelector('.hamburguesa');
-const menu = document.querySelector('.menu');
+const botonMenu = document.querySelector(".hamburguesa");
+const menu = document.querySelector(".menu");
 
 if (botonMenu && menu) {
-    botonMenu.addEventListener('click', () => {
-        const abierto = menu.classList.toggle('abierto');
+  botonMenu.addEventListener("click", () => {
+    const abierto = menu.classList.toggle("abierto");
 
-        botonMenu.setAttribute('aria-expanded', abierto);
-    });
+    botonMenu.setAttribute("aria-expanded", abierto);
+  });
 }
