@@ -2,6 +2,15 @@ if (!estaLogueado()) {
     window.location.href = 'login.html'
 }
 
+const titulo = document.getElementById("nombre-usuario");
+const nombre = sessionStorage.getItem("usuario");
+
+if (nombre !== null) {
+  titulo.textContent = "Hola, " + nombre;
+} else {
+  titulo.textContent = "Hola";
+}
+
 const mascotas = JSON.parse(localStorage.getItem('mascotas')) || [];
 const veterinarios = JSON.parse(localStorage.getItem('veterinarios')) || [];
 const turnos = JSON.parse(localStorage.getItem('turnos')) || [];
